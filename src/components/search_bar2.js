@@ -4,7 +4,7 @@ import axios from 'axios';
 export default class SearchBar2 extends React.Component{
     constructor(props){
         super(props);
-        this.state = {user2 : '',details2:[]}
+        this.state = {user2 : '',details2:null}
     }
     getUser2(e){
         e.preventDefault();

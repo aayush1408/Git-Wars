@@ -13,6 +13,7 @@ export default class SearchBar1 extends React.Component{
             .then((res)=>{
                 console.log(res.data);
                 this.setState({details1:res.data});
+                this.props.getDetails1(this.state.details1);
         })
             .catch((err)=>{
                 console.log(err.response);
