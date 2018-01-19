@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import SearchBar1 from './search_bar1.js';
+import SearchBar2 from './search_bar2.js';
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -14,7 +16,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-            
+        <SearchBar1 />
+        <br/><br/>
+        <SearchBar2 />
       </div>
     );
   }
