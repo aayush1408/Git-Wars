@@ -4,15 +4,15 @@ import axios from 'axios';
 export default class SearchBar2 extends React.Component{
     constructor(props){
         super(props);
-        this.state = {user2 : '',details2:null}
+        this.state = {user2 : '',detailsFetched:[]}
     }
     getUser2(e){
         e.preventDefault();
-        this.setState({user2:''});
           axios.get(`https://api.github.com/users/${this.state.user2}`)
             .then((res)=>{
-                console.log(res.data);
-                this.setState({details2:res.data});
+                this.setState({detailsFetched:res.data});
+                this.props.getDetails2(this.state.detailsFetched);   
+                this.setState({user2:''});
         })
             .catch((err)=>{
                 console.log(err.response);
@@ -28,7 +28,7 @@ export default class SearchBar2 extends React.Component{
                <form onSubmit={this.getUser2.bind(this)}>
                 <input 
                 type="text" 
-                value={this.state.user1}
+                value={this.state.user2}
                 placeholder = "Enter the 2nd user"
                 onChange = {this.onInputChange.bind(this)}
                  />

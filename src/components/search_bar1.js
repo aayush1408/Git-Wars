@@ -4,16 +4,15 @@ import axios from 'axios';
 export default class SearchBar1 extends React.Component{
     constructor(props){
         super(props);
-        this.state = {user1 : '',details1:[]}
+        this.state = {user1 : '',detailsFetched:[]}
     }
     getUser1(e){
         e.preventDefault();
-        this.setState({user1:''});
           axios.get(`https://api.github.com/users/${this.state.user1}`)
             .then((res)=>{
-                console.log(res.data);
-                this.setState({details1:res.data});
-                this.props.getDetails1(this.state.details1);
+                this.setState({detailsFetched:res.data});
+                this.props.getDetails1(this.state.detailsFetched);   
+                this.setState({user1:''});
         })
             .catch((err)=>{
                 console.log(err.response);
