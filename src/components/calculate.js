@@ -16,7 +16,14 @@ export default class Calculate extends React.Component{
         else{
             count2 = count2 +1;
         }
-         
+         if(this.props.details1.followers > this.props.details2.followers){
+            count1 = count1+1;
+            console.log(count1);
+            console.log(count2);
+        }
+        else{
+            count2 = count2 +1;
+        }
          if(count1 > count2){
             this.setState({winner:this.props.details1.name})            
         }
@@ -29,7 +36,7 @@ export default class Calculate extends React.Component{
         return(
                <div>
                 <button onClick={this.findWinner.bind(this)}>Find the winner</button>
-                   <h1>{this.state.winner}</h1>
+                   <h1>Winner is {this.state.winner}</h1>
                     </div>
                )
     }
