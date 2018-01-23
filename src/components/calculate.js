@@ -27,17 +27,23 @@ export default class Calculate extends React.Component{
          if(count1 > count2){
             this.setState({winner:this.props.details1.name})            
         }
-        else{
+        else if(count1<count2){
             this.setState({winner:this.props.details2.name})            
+        }
+        else{
+             this.setState({winner:"Nobody ,it's a draw" })
         }
     }
     render(){
-        
-        return(
+        if(this.state.winner === ''){
+             return(
                <div>
                 <button onClick={this.findWinner.bind(this)}>Find the winner</button>
-                   <h1>Winner is {this.state.winner}</h1>
-                    </div>
-               )
+                </div>
+                )     
+        }
+        else{
+                    return (<h1>Winner is {this.state.winner}</h1>)
     }
+}
 }
