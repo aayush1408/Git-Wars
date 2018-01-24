@@ -4,6 +4,7 @@ import SearchBar2 from './search_bar2.js';
 import User1 from './user1.js';
 import User2 from './user2';
 import Calculate from './calculate.js';
+import Header from './Header.js';
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -20,6 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <SearchBar1  getDetails1={this.getDetails1.bind(this)}/>
         <User1 details1={this.state.details1} />
         <SearchBar2 getDetails2={this.getDetails2.bind(this)} />
